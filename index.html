@@ -11,33 +11,40 @@
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <script>
         window.onSpotifyWebPlaybackSDKReady = () => {
+                $.ajax({
+                    method: "GET",
+                    url: "https://accounts.spotify.com/authorize",
+                    client_id: "9a9554fee7ce40789763afa6116c12d1",
+                    response_type: "token",
+                    redirect_uri: "https://hashamim.github.io/SpotifyApiTest/",
+                }).then((e) => console.log(e));
                 const token = 'BQAqDgjWGo0UojU4HaFYy76OWPuYR2C54Qsjhpku4rmGMxQViw1DZbQWiAUkSF7rzlQ2TkgIMwFf1mJa3sQ5b88hOqdQIZDRh51jjxWnw0ChwznjcMkmcjyojq-8gs_bP_8L7tvlR10jsnkvRMH56V2spxyCJv1BdDoopQ';
-                const player = new Spotify.Player({
-                    name: 'Web Playback SDK Quick Start Player',
-                    getOAuthToken: cb => { cb(token); }
-                });
+                // const player = new Spotify.Player({
+                //     name: 'Web Playback SDK Quick Start Player',
+                //     getOAuthToken: cb => { cb(token); }
+                // });
 
                 // Error handling
-                player.addListener('initialization_error', ({ message }) => { console.error(message); });
-                player.addListener('authentication_error', ({ message }) => { console.error(message); });
-                player.addListener('account_error', ({ message }) => { console.error(message); });
-                player.addListener('playback_error', ({ message }) => { console.error(message); });
+                // player.addListener('initialization_error', ({ message }) => { console.error(message); });
+                // player.addListener('authentication_error', ({ message }) => { console.error(message); });
+                // player.addListener('account_error', ({ message }) => { console.error(message); });
+                // player.addListener('playback_error', ({ message }) => { console.error(message); });
 
                 // Playback status updates
-                player.addListener('player_state_changed', state => { console.log(state); });
+                // player.addListener('player_state_changed', state => { console.log(state); });
 
                 // Ready
-                player.addListener('ready', ({ device_id }) => {
-                    console.log('Ready with Device ID', device_id);
-                });
+                // player.addListener('ready', ({ device_id }) => {
+                //     console.log('Ready with Device ID', device_id);
+                // });
 
                 // Not Ready
-                player.addListener('not_ready', ({ device_id }) => {
-                    console.log('Device ID has gone offline', device_id);
-                });
+                // player.addListener('not_ready', ({ device_id }) => {
+                //     console.log('Device ID has gone offline', device_id);
+                // });
 
                 // Connect to the player!
-                player.connect();
+                // player.connect();
             };
     </script>
 </body>
