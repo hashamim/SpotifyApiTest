@@ -2,17 +2,17 @@
 
 <head>
     <title>Hasnain spotify test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
 </head>
 
 <body>
     <h1>Golly Gee willickers i Hope this works</h1>
     <h2>Open your console log: <code>View > Developer > JavaScript Console</code></h2>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <script>
         window.onSpotifyWebPlaybackSDKReady = () => {
-                $.ajax({
-                    method: "GET",
+                $.get({
+                    // method: "GET",
                     url: "https://accounts.spotify.com/authorize",
                     client_id: "9a9554fee7ce40789763afa6116c12d1",
                     response_type: "token",
